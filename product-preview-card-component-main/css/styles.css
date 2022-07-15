@@ -43,6 +43,7 @@ The designs were created to the following widths:
 }
 :root {
   --dark-cyan: hsl(158, 36%, 37%);
+  --dark-cyan-active: hsl(159, 31%, 21%);
   --cream: hsl(30, 38%, 92%);
   --very-dark-blue: hsl(212, 21%, 14%);
   --dark-grayish-blue: hsl(228, 12%, 48%);
@@ -68,7 +69,7 @@ body {
   display: grid;
 }
 .main--content {
-  grid-area: content;
+  grid-area: main-content;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   margin-bottom: 2rem;
@@ -95,6 +96,10 @@ button {
   height: 50px;
   border-radius: 10px;
   border: 0px;
+}
+button:hover {
+  background-color: var(--dark-cyan-active);
+  cursor: pointer;
 }
 button img {
   padding-right: 1rem;
@@ -135,13 +140,12 @@ h2 {
     grid-template-rows: 2fr 3fr;
     grid-template-columns: 100%;
     grid-template-areas:
-      "image"
-      "content";
+      "main-image"
+      "main-content";
   }
   .main--image {
-    grid-area: image;
-    background-image: url(../images/image-product-desktop.jpg);
-    /*min-height: 250px;*/
+    grid-area: main-image;
+    background-image: url(../images/image-product-mobile.jpg);
     background-position: center;
     background-size: cover;
   }
@@ -150,5 +154,19 @@ h2 {
 @media (min-width: 1440px) {
   .main {
     width: 1440px;
+    height: 100vh;
+  }
+  .main--card {
+    width: 600px;
+
+    grid-template-columns: 3fr 3fr;
+    grid-template-rows: 100%;
+    grid-template-areas: "main-image main-content";
+  }
+  .main--image {
+    grid-area: main-image;
+    background-image: url(../images/image-product-desktop.jpg);
+    background-position: center;
+    background-size: cover;
   }
 }
